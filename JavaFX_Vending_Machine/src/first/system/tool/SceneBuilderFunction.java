@@ -1,27 +1,17 @@
 package first.system.tool;
 
-import java.io.IOException;
-import java.net.URL;
-
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import first.controller.ControllerAbstract;
+import javafx.scene.layout.AnchorPane;
 
+//SceneBuilderから使える機能を管理するクラス。
+//fit To Parent以外は・・・分からん。
 public class SceneBuilderFunction {
 	
-	public static Node FxmlLoad(ControllerAbstract controller) {
-		String fxmlFileName = controller.getFileName();
-		URL url = FileFunction.getFxmlUrl(fxmlFileName);
-		FXMLLoader loader = new FXMLLoader(url);
-		Node node = null;
-		loader.setRoot(node);
-		loader.setController(controller);
-		try {
-			loader.load();
-		} catch (IOException e) {
-			System.out.println(url.getFile() + "を読み込めませんでした");
-			e.printStackTrace();
-		}
-		return node;
+	//SceneBuilderのfit To Parentと同じ動きをするメソッド
+	public static void fitToParent(Node node) {
+		AnchorPane.setTopAnchor(node, 0.0);
+		AnchorPane.setRightAnchor(node, 0.0);
+		AnchorPane.setBottomAnchor(node, 0.0);
+		AnchorPane.setLeftAnchor(node, 0.0);
 	}
 }

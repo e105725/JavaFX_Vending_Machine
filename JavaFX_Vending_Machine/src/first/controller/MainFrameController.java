@@ -10,7 +10,6 @@ import javafx.scene.layout.AnchorPane;
 import first.system.constant.FXMLFileName;
 
 public class MainFrameController extends ControllerAbstract {
-	
 	@FXML private AnchorPane root;
 	@FXML private Button button;
 	@FXML private ComboBox<String> comboBox;
@@ -24,5 +23,6 @@ public class MainFrameController extends ControllerAbstract {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.button.setText(this.text);
+		this.button.setOnAction((event) -> System.out.println("hoge"));
 	}
 }
