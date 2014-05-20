@@ -1,2 +1,2 @@
-コントローラを置いておくクラス。
-全てのクラスがControllerAbstractを継承している
+コントローラを置くパッケージ。
+全てのクラスがControllerAbstractを継承する。
