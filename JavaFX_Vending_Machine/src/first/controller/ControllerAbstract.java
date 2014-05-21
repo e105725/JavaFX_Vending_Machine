@@ -1,10 +1,8 @@
 package first.controller;
 
-import java.util.HashMap;
-
 import javafx.fxml.Initializable;
 
-public abstract class ControllerAbstract extends HashMap<String, ControllerAbstract> implements Initializable {
+public abstract class ControllerAbstract implements Initializable {
 	private final String fxmlFileName;
 	
 	protected ControllerAbstract(String _fxmlFileName) {
