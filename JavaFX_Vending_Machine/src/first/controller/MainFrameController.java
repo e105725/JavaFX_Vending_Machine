@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import first.model.Deposit;
+import first.model.History;
 import first.system.constant.FXMLFileName;
 import first.system.tool.FileTool;
 import first.system.tool.SceneBuilderTool;
@@ -22,9 +24,11 @@ public class MainFrameController extends ControllerAbstract {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		GridPane commodityPane = (GridPane) FileTool.fxmlLoad(new CommodityPaneController());
-		BorderPane paymentPane = (BorderPane) FileTool.fxmlLoad(new PaymentPaneController());
-		BorderPane historyPane = (BorderPane) FileTool.fxmlLoad(new HistoryPaneController());
+		History history = new History();
+		Deposit deposit = new Deposit();
+		GridPane commodityPane = (GridPane) FileTool.fxmlLoad(new CommodityPaneController(deposit, history));
+		BorderPane paymentPane = (BorderPane) FileTool.fxmlLoad(new PaymentPaneController(deposit));
+		BorderPane historyPane = (BorderPane) FileTool.fxmlLoad(new HistoryPaneController(history));
 		
 		SceneBuilderTool.fitToParent(commodityPane);
 		this.commodityPaneBase.getChildren().add(commodityPane);

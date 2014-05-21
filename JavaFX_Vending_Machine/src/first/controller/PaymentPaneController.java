@@ -5,13 +5,15 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
+import first.model.Deposit;
 import first.system.constant.FXMLFileName;
 
 public class PaymentPaneController extends ControllerAbstract {
 
 	@FXML private BorderPane root;
 	
-	public PaymentPaneController() {
+
+	public PaymentPaneController(Deposit deposit) {
 		super(FXMLFileName.PAYMENT_PANE);
 	}
 

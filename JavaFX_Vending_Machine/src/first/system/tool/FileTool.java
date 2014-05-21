@@ -11,7 +11,6 @@ import first.controller.ControllerAbstract;
 //ファイルに関わるツール的機能を管理するクラス。
 //fxmlやimageやcssの本体だったりurlを取ってきたりするメソッドを管理するクラス
 //
-
 public final class FileTool {
 	
 	private FileTool() {

@@ -1,0 +1,1 @@
+コンポーネントを置く所。TableViewをextendsしたHistoryTableViewとかその辺

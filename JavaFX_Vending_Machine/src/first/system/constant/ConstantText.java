@@ -13,4 +13,8 @@ public final class ConstantText {
 		"ラムネ",
 		"コーヒー",
 	};
+	
+	public static final String HISTORY_LABEL_TEXT              = "購入履歴";
+	public static final String HISTORY_TABLE_NAME_COLUMN_TEXT  = "品名";
+	public static final String HISTORY_TABLE_PRICE_COLUMN_TEXT = "値段";
 }
