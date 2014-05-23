@@ -1,4 +1,4 @@
 アクション系のクラスをまとめる所。
 JavaFXの名前に習って、SwingのActionとは分けるつもり。
 基本的にはBindingとEventHandlerを置く。
-EventHandlerのネーミングは、〇〇Handlerにする。
+EventHandlerのネーミングは、〇〇EventHandlerかなぁ。

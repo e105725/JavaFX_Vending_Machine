@@ -11,9 +11,9 @@ import first.model.Deposit;
 import first.model.History;
 import first.system.constant.FXMLFileName;
 import first.system.tool.FileTool;
-import first.system.tool.node.NodeTool;
+import first.system.tool.node.AnchorPaneTool;
 
-public class MainFrameController extends ControllerAbstract {
+public final class MainFrameController extends ControllerAbstract {
 	@FXML private AnchorPane commodityPaneBase;
 	@FXML private AnchorPane paymentPaneBase;
 	@FXML private AnchorPane historyPaneBase;
@@ -30,13 +30,13 @@ public class MainFrameController extends ControllerAbstract {
 		BorderPane paymentPane = (BorderPane) FileTool.fxmlLoad(new PaymentPaneController(deposit));
 		BorderPane historyPane = (BorderPane) FileTool.fxmlLoad(new HistoryPaneController(history));
 		
-		NodeTool.fitToParent(commodityPane);
+		AnchorPaneTool.fitToParent(commodityPane);
 		this.commodityPaneBase.getChildren().add(commodityPane);
 		
-		NodeTool.fitToParent(paymentPane);
+		AnchorPaneTool.fitToParent(paymentPane);
 		this.paymentPaneBase.getChildren().add(paymentPane);
 		
-		NodeTool.fitToParent(historyPane);
+		AnchorPaneTool.fitToParent(historyPane);
 		this.historyPaneBase.getChildren().add(historyPane);
 	}
 }

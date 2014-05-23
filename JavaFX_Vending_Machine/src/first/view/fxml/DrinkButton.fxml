@@ -4,5 +4,5 @@
 <?import javafx.scene.control.*?>
 
 <Button fx:id="nameButton" contentDisplay="TOP" mnemonicParsing="false" text="Button" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-<graphic><RadioButton fx:id="priceRadio" contentDisplay="TOP" mnemonicParsing="false" text="RadioButton" />
+<graphic><RadioButton fx:id="priceRadio" contentDisplay="TOP" mnemonicParsing="false" mouseTransparent="true" text="RadioButton" />
 </graphic></Button>

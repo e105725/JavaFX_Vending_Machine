@@ -8,17 +8,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import first.action.handler.CoinClickHandler;
-import first.action.handler.RefundButtonClickHandler;
+import first.action.handler.PaymentEventHandler;
+import first.action.handler.RefundEventHandler;
 import first.model.Coin;
 import first.model.Deposit;
 import first.model.Wallet;
 import first.system.constant.ConstantValue;
 import first.system.constant.FXMLFileName;
 import first.system.tool.node.GridPaneTool;
-import first.system.tool.node.NodeTool;
+import first.system.tool.node.AnchorPaneTool;
 
-public class PaymentPaneController extends ControllerAbstract {
+public final class PaymentPaneController extends ControllerAbstract {
 
 	@FXML private TextField walletTextField;
 	@FXML private TextField depositTextField;
@@ -38,7 +38,7 @@ public class PaymentPaneController extends ControllerAbstract {
 		this.walletTextField.textProperty().bind(this.wallet.moneyProperty().asString());
 		this.depositTextField.textProperty().bind(this.deposit.moneyProperty().asString());
 		
-		RefundButtonClickHandler refundHandler = new RefundButtonClickHandler(this.wallet, this.deposit);
+		RefundEventHandler refundHandler = new RefundEventHandler(this.wallet, this.deposit);
 		this.refundButton.setOnAction(refundHandler);
 		
 		GridPane coinGrid = new GridPane();
@@ -51,10 +51,10 @@ public class PaymentPaneController extends ControllerAbstract {
 			coinGrid.add(button, index / coinGridColumnMax, index % coinGridColumnMax);
 			coinGrid.setVgap(10);
 			
-			CoinClickHandler coinClickHandler = new CoinClickHandler(this.wallet, this.deposit, coin);
+			PaymentEventHandler coinClickHandler = new PaymentEventHandler(this.wallet, this.deposit, coin);
 			button.setOnAction(coinClickHandler);
 		}
-		NodeTool.fitToParent(coinGrid);
+		AnchorPaneTool.fitToParent(coinGrid);
 		this.coinGridBase.getChildren().add(coinGrid);
 	}
 }

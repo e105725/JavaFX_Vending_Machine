@@ -5,8 +5,8 @@ import javafx.scene.layout.AnchorPane;
 
 //SceneBuilderから使える機能を管理するクラス。
 //fit To Parent以外は・・・分からん。
-public final class NodeTool {
-	private NodeTool() {
+public final class AnchorPaneTool {
+	private AnchorPaneTool() {
 	}
 	
 	//SceneBuilderのfit To Parentと同じ動きをするメソッド

@@ -5,12 +5,12 @@ import first.model.Wallet;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-public class RefundButtonClickHandler implements EventHandler<ActionEvent> {
+public final class RefundEventHandler implements EventHandler<ActionEvent> {
 
 	private final Wallet wallet;
 	private final Deposit deposit;
 	
-	public RefundButtonClickHandler(Wallet _wallet, Deposit _deposit) {
+	public RefundEventHandler(Wallet _wallet, Deposit _deposit) {
 		this.wallet = _wallet;
 		this.deposit = _deposit;
 	}

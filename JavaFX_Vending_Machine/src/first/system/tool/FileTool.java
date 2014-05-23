@@ -16,13 +16,13 @@ public final class FileTool {
 	private FileTool() {
 	}
 	
-	public static URL getFxmlUrl(String fileName) {
+	public static final URL getFxmlUrl(String fileName) {
 		URL url = VendingMachine.class.getResource("view/fxml/" + fileName);
 		return url;
 	}
 
 	//fxmlLoadするメソッド。LoadしたNodeクラスをリターンするので、呼び出し元はそいつをキャストして使う。
-	public static Node fxmlLoad(ControllerAbstract controller) {
+	public static final Node fxmlLoad(ControllerAbstract controller) {
 		String fxmlFileName = controller.getFileName();
 		URL url = FileTool.getFxmlUrl(fxmlFileName);
 		FXMLLoader loader = new FXMLLoader(url);

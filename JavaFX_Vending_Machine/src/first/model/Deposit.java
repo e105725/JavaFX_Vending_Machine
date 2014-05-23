@@ -8,6 +8,7 @@ import first.system.constant.ConstantValue;
 public final class Deposit {
 	
 	private final IntegerProperty moneyProperty;
+	
 	public Deposit() {
 		this.moneyProperty = new SimpleIntegerProperty(ConstantValue.DEFAULT_DEPOSIT_MONEY);
 	}

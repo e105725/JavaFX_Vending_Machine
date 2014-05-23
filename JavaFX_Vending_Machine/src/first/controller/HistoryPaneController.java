@@ -14,7 +14,7 @@ import first.model.History;
 import first.system.constant.ConstantText;
 import first.system.constant.FXMLFileName;
 
-public class HistoryPaneController extends ControllerAbstract {
+public final class HistoryPaneController extends ControllerAbstract {
 	@FXML private BorderPane root;
 	@FXML private Label tableNameLabel;
 	@FXML private TableView<Drink> historyTable;
@@ -22,6 +22,7 @@ public class HistoryPaneController extends ControllerAbstract {
 	@FXML private TableColumn<Drink, Integer> priceColumn;
 	
 	private final History history;
+	
 	public HistoryPaneController(History _history) {
 		super(FXMLFileName.HISTORY_PANE);
 		this.history = _history;

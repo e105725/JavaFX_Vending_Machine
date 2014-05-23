@@ -3,7 +3,7 @@ package first.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class History {
+public final class History {
 	
 	private final ObservableList<Drink> historyList;
 	

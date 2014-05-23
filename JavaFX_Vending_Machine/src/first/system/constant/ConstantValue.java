@@ -19,8 +19,9 @@ public final class ConstantValue {
 		500
 	};
 	
-	public static final int DEFAULT_WALLET_MONEY = 10000;
+	public static final int DEFAULT_WALLET_MONEY  = 10000;
 	public static final int DEFAULT_DEPOSIT_MONEY = 0;
-	
-	public static final int COIN_GRID_COLUMN_MAX = 2;
+	public static final int COIN_GRID_COLUMN_MAX  = 2;
+	public static final int DRINK_NUM             = 10;
+	public static final int DRINK_GRID_COLUMN_MAX = 5;
 }
