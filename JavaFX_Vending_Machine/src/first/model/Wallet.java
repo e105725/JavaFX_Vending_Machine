@@ -17,7 +17,7 @@ public final class Wallet {
 		return this.moneyProperty;
 	}
 	
-	public final void receive(int receiveMoney) {
+	public final void payback(int receiveMoney) {
 		int nowMoney = this.moneyProperty.get();
 		int nextMoney = Calculator.addition(nowMoney, receiveMoney);
 		this.moneyProperty.set(nextMoney);
@@ -27,5 +27,11 @@ public final class Wallet {
 		int nowMoney = this.moneyProperty.get();
 		int nextMoney = Calculator.subtract(nowMoney, paymentMoney);
 		this.moneyProperty.set(nextMoney);
+	}
+	
+	public final boolean canPayment(int paymentMoney) {
+		int nowMoney = this.moneyProperty.get();
+		boolean canPayment = paymentMoney <= nowMoney;
+		return canPayment;
 	}
 }

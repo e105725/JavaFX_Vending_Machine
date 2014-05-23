@@ -16,6 +16,18 @@ public final class Deposit {
 		return this.moneyProperty;
 	}
 	
+	public final void expenditure(int drinkMoney) {
+		int nowMoney = this.moneyProperty.get();
+		int nextMoney = Calculator.subtract(nowMoney, drinkMoney);
+		this.moneyProperty.set(nextMoney);
+	}
+	
+	public final boolean canExpenditure(int drinkMoney) {
+		int nowMoney = this.moneyProperty.get();
+		boolean canExpenditure = drinkMoney <= nowMoney;
+		return canExpenditure;
+	}
+	
 	public final void receive(int receiveMoney) {
 		int nowMoney = this.moneyProperty.get();
 		int nextMoney = Calculator.addition(nowMoney, receiveMoney);

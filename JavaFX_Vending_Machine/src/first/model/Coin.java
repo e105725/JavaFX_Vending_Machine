@@ -2,13 +2,13 @@ package first.model;
 
 public final class Coin {
 
-	private final int price;
+	private final int money;
 	
-	public Coin(int _price) {
-		this.price = _price;
+	public Coin(int _money) {
+		this.money = _money;
 	}
 	
-	public final int getPrice() {
-		return this.price;
+	public final int getMoney() {
+		return this.money;
 	}
 }

@@ -1,12 +1,12 @@
-package first.system.tool;
+package first.system.tool.node;
 
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 
 //SceneBuilderから使える機能を管理するクラス。
 //fit To Parent以外は・・・分からん。
-public final class SceneBuilderTool {
-	private SceneBuilderTool() {
+public final class NodeTool {
+	private NodeTool() {
 	}
 	
 	//SceneBuilderのfit To Parentと同じ動きをするメソッド
