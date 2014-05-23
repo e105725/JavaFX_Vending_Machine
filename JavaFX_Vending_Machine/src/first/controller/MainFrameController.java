@@ -26,6 +26,7 @@ public final class MainFrameController extends ControllerAbstract {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		History history = new History();
 		Deposit deposit = new Deposit();
+		
 		GridPane commodityPane = (GridPane) FileTool.fxmlLoad(new CommodityPaneController(deposit, history));
 		BorderPane paymentPane = (BorderPane) FileTool.fxmlLoad(new PaymentPaneController(deposit));
 		BorderPane historyPane = (BorderPane) FileTool.fxmlLoad(new HistoryPaneController(history));

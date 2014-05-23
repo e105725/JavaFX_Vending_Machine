@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import first.controller.MainFrameController;
 import first.system.tool.FileTool;
 
-public class VendingMachine extends Application {
+public final class VendingMachine extends Application {
 	public static void main(String[] args) {
 		launch();
 	}

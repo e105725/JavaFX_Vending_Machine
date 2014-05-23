@@ -4,26 +4,29 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.geometry.HPos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import first.action.handler.PaymentEventHandler;
 import first.action.handler.RefundEventHandler;
 import first.model.Coin;
 import first.model.Deposit;
 import first.model.Wallet;
+import first.system.constant.ConstantText;
 import first.system.constant.ConstantValue;
 import first.system.constant.FXMLFileName;
 import first.system.tool.node.GridPaneTool;
-import first.system.tool.node.AnchorPaneTool;
 
 public final class PaymentPaneController extends ControllerAbstract {
-
 	@FXML private TextField walletTextField;
 	@FXML private TextField depositTextField;
 	@FXML private Button refundButton;
-	@FXML private AnchorPane coinGridBase;
+	@FXML private GridPane coinGrid;
+	@FXML private Label walletLabel;
+	@FXML private Label depositLabel;
+	
 	private final Deposit deposit;
 	private final Wallet wallet;
 
@@ -37,24 +40,26 @@ public final class PaymentPaneController extends ControllerAbstract {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.walletTextField.textProperty().bind(this.wallet.moneyProperty().asString());
 		this.depositTextField.textProperty().bind(this.deposit.moneyProperty().asString());
+		this.refundButton.setOnAction(new RefundEventHandler(this.wallet, this.deposit));
+		this.initLabel();
 		
-		RefundEventHandler refundHandler = new RefundEventHandler(this.wallet, this.deposit);
-		this.refundButton.setOnAction(refundHandler);
-		
-		GridPane coinGrid = new GridPane();
 		int coinGridColumnMax = ConstantValue.COIN_GRID_COLUMN_MAX;
-		GridPaneTool.initColumnConstraints(coinGrid, coinGridColumnMax);
-		for(int index = 0; index < ConstantValue.COIN_MONEYS.length; index++) {
+		int coinNum = ConstantValue.COIN_MONEYS.length;
+		int rowSize = coinNum / coinGridColumnMax;
+		GridPaneTool.initColumnConstraints(this.coinGrid, coinGridColumnMax);
+		GridPaneTool.initRowConstraints(this.coinGrid, rowSize);
+		
+		for(int index = 0; index < coinNum; index++) {
 			Coin coin = new Coin(ConstantValue.COIN_MONEYS[index]);
-			String moneyText = Integer.toString(coin.getMoney());
-			Button button = new Button(moneyText);
-			coinGrid.add(button, index / coinGridColumnMax, index % coinGridColumnMax);
-			coinGrid.setVgap(10);
-			
-			PaymentEventHandler coinClickHandler = new PaymentEventHandler(this.wallet, this.deposit, coin);
-			button.setOnAction(coinClickHandler);
+			Button button = new Button(Integer.toString(coin.getMoney()));
+			this.coinGrid.add(button, index / coinGridColumnMax, index % coinGridColumnMax);
+			GridPane.setHalignment(button, HPos.CENTER);
+			button.setOnAction(new PaymentEventHandler(this.wallet, this.deposit, coin));
 		}
-		AnchorPaneTool.fitToParent(coinGrid);
-		this.coinGridBase.getChildren().add(coinGrid);
+	}
+	
+	private final void initLabel() {
+		this.walletLabel.setText(ConstantText.WALLET_LABEL_TEXT);
+		this.depositLabel.setText(ConstantText.DEPOSIT_LABEL_TEXT);
 	}
 }
